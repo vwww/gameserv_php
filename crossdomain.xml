@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<!-- Editing this file, even by a byte, will cause your server to fail registration! -->
+<cross-domain-policy>
+	<allow-access-from domain="*" secure="false"/>
+</cross-domain-policy>
