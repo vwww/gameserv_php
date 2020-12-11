@@ -27,19 +27,7 @@ else
 	}
 
 	// store it?
-	function generate_salt() {
-		$dummy = array_merge(range('0', '9'));
-		mt_srand((double)microtime()*1000000);
-		for ($i = 1; $i <= (count($dummy)*2); $i++)
-		{
-				$swap = mt_rand(0,count($dummy)-1);
-				$tmp = $dummy[$swap];
-				$dummy[$swap] = $dummy[0];
-				$dummy[0] = $tmp;
-		}
-		return sha1(substr(implode('',$dummy),0,9));
-	}
-	$secret = generate_salt();
+	$secret = bin2hex(openssl_random_pseudo_bytes(20));
 	broadcast("j", array("n" => $name, "c" => $color));//, $secret);
 	mysqli_query($link, "INSERT INTO `clients` (`secret`, `playername`, `color`, `last_receive`) VALUES ('$secret', '$name', $color, ".time().")");
 
