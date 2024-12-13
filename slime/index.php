@@ -17,5 +17,3 @@ echo json_encode(array(
 	"ping" => isset($_GET['t']) ? (int)$_GET['t'] : null,
 	"connect" => "connect.php",
 ));
-
-?>

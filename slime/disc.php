@@ -12,5 +12,3 @@ if(mysqli_affected_rows($link))
 	broadcast("d", array()); // lazy...
 }
 else echo "!";
-
-?>

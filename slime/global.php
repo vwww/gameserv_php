@@ -28,5 +28,3 @@ function broadcast($type, $payload, $id = false, $exclusive = false)
 	if($exclusive) mysqli_query($link, "DELETE FROM `messages` WHERE `type`='$type' AND `target` != '$id'");
 	mysqli_query($link, "INSERT INTO `messages` (`target`, `type`, `payload`) SELECT `secret`, '$type', '".mysqli_real_escape_string($link, serialize($payload))."' FROM `clients`".($id ? " WHERE `secret` != '$id'" : ""));
 }
-
-?>

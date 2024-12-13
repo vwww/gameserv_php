@@ -67,5 +67,3 @@ function change2mysql(&$item, $k)
 }
 array_walk($changed, 'change2mysql');
 mysqli_query($link, "UPDATE `clients` SET ".implode(',', $changed)." WHERE `secret`='$sid'");
-
-?>
