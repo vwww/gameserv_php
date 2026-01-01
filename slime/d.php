@@ -63,7 +63,8 @@ echo json_encode($messages);
 // update records
 function change2mysql(&$item, $k)
 {
-	$item = "`$k`='$item'";
+	global $link;
+	$item = "`$k`='".mysqli_real_escape_string($link, (string)$item)."'";
 }
 array_walk($changed, 'change2mysql');
 mysqli_query($link, "UPDATE `clients` SET ".implode(',', $changed)." WHERE `secret`='$sid'");
